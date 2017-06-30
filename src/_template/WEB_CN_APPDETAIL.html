@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="modAppDetail" ng-controller="appDetailController" xmlns:ng="http://angularjs.org" id="ng-app">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>掌上丝绸之路</title>
+    <meta name="robots" content="all">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/iconfont.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../less/style.less" rel="stylesheet/less" />
+    <script src="../js/less.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+	<div class="header">
+		<div class="min-width-box">
+			<div class="logo-box" id="logo">
+				<div class="logo-d2c"><a href="http://www.opd2c.com/" target="_blank">上海东方明珠迪尔希</a></div>
+				<div class="logo-silkroad"><a href="index.html">掌上丝绸之路</a></div>
+			</div>
+			<div class="right-menu">
+				<div class="btn-quit">
+					<a href="javascript:;">退出</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="common-list app-list bg-layer">
+			<div class="title">
+				<div class="min-width-box">
+					<h2>商务专区</h2>
+				</div>
+			</div>
+			<div class="content-box">
+				<div class="min-width-box clearfix">
+					<div class="main">
+						<div class="view-list">
+							<div class="app-detail">
+								<div class="detail-nav">
+									<ol class="breadcrumb">
+										<li><a href="index.html">首页</a></li>
+										<li>游戏</li>
+									</ol>
+								</div>
+								<div class="detail-box">
+									<div class="detail-data app-data">
+										<div class="pull-left">
+											<div class="cover"><img ng-src="{{appDetail.icon}}" /></div>
+											<div class="bd-share" ng-show="false">
+												<span>分享到：</span>
+												<div class="bdsharebuttonbox" data-tag="share_1">
+													<a class="bds_more" data-cmd="more">
+													<a class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+													<a class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+													<a class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+													<a class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+													<a class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+												</div>
+											</div>
+											
+										</div>
+										<div class="pull-left">
+											<div class="info">游戏种类：<span ng-repeat="type in appDetail.type">{{type}}</span><br />平台：<span ng-repeat="platforms in appDetail.platforms">{{platforms}}</span><br />阶段：{{appDetail.phase}}<br />完成度：{{appDetail.percentage}}<br />需求目标：<span ng-repeat="need in appDetail.need">{{need}}</span></div>
+										</div>
+										
+									</div>
+									<div class="detail-content">
+										<div class="summary">
+											<h3>游戏介绍</h3>
+											<p ng-bind-html="appDetail.summary | showAsHtml"></p>
+										</div>
+										<div class="feature">
+											<h3>游戏特色</h3>
+											<p ng-bind-html="appDetail.feature | showAsHtml"></p>
+										</div>
+										<div class="team">
+											<h3>公司/团队介绍</h3>
+											<p ng-bind-html="appDetail.teamSummary | showAsHtml"></p>
+										</div>
+									</div>
+									<div class="app-picture">
+										<h3>游戏图片</h3>
+										<div class="picture-box">
+											<div class="big-pic">
+												<div class="big-pic-mask">
+													<ul>
+														<li ng-repeat="photo in appDetail.images" ng-click="tab($index)" on-finish-render="ngRepeatFinished"><img ng-src="{{photo.url}}" /></li>
+													</ul>
+												</div>
+												<a class="prev" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+												<a class="next" href="javascript:;"><i class="iconfont icon-arrow-right"></i></a>
+											</div>
+											<div class="small-pic">
+												<div class="small-pic-mask">
+													<ol>
+														<li class="{{nowImg == $index ? 'active' : ''}}" ng-repeat="photo in appDetail.smImg"><img ng-src="{{photo.url}}" /></li>
+													</ol>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="min-width-box">
+			<div class="logo-box" id="logo">
+				<div class="logo-d2c"><a href="#" target="_blank">上海东方明珠迪尔希</a></div>
+				<div class="logo-silkroad"><a ui-sref="home">掌上丝绸之路</a></div>
+			</div>
+			<div class="right-box">
+				<div class="bottom-nav">
+					<ul>
+						<li><a href="http://www.opd2c.com/manage.php?GET_Table_Action=DEF_PATH_TABLE_ABOUT" target="_blank">关于我们</a></li>
+						<li><a href="http://www.opd2c.com/manage.php?GET_Table_Action=DEF_PATH_TABLE_PROJECT_ALL" target="_blank">项目介绍</a></li>
+						<li><a href="http://www.opd2c.com/manage.php?GET_Table_Action=DEF_PATH_TABLE_RECRUITMENT_RESEARCH" target="_blank">招贤纳才</a></li>
+						<li class="last"><a href="http://www.opd2c.com/manage.php?GET_Table_Action=DEF_PATH_TABLE_CONTACT" target="_blank">联系我们</a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					<p>Copyright © 2017 上海东方明珠迪尔希文化传媒有限公司<br />网络文化经营许可证：沪网文[2015]15015900号<br />工业和信息化部：沪ICP备15015900号</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/angular.min.js"></script>
+<script src="../controllers/app_detail.js"></script>
+   
+<script>
+with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+</body>
+</html>

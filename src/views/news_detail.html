@@ -1,0 +1,12 @@
+<div class="news-detail-box">
+	<div class="detail-title">
+		<h3>{{newsDetail.title}}</h3>
+		<div class="from">{{newsDetail.date | date:'yyyy-MM-dd'}}</div>
+	</div>
+	<div class="tags">
+		<span ng-repeat="tags in newsDetail.tags">{{tags}}</span>
+	</div>
+	<div class="detail-text">
+		<div class="text" ng-bind-html="newsDetail.context | showAsHtml"></div>
+	</div>
+</div>

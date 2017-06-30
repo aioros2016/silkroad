@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" ng-app="modApp" ng-controller="appCController" xmlns:ng="http://angularjs.org" id="ng-app">
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>掌上丝绸之路</title>
+    <meta name="robots" content="all">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/iconfont.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link type="text/css" href="../less/style.less" rel="stylesheet/less" />
+    <script src="../js/less.min.js"></script>
+</head>
+<body>
+        <div class="home">
+            <div class="container-fluid" >
+                <div class="header">
+                    <div class="min-width-box">
+                        <div class="logo-box" id="logo">
+							<div class="logo-d2c"><a href="#" target="_blank">上海东方明珠迪尔希</a></div>
+							<div class="logo-silkroad"><a ui-sref="home">掌上丝绸之路</a></div>
+						</div>
+                        <div class="right-menu">
+                            <div class="btn-quit">
+                                <a>退出</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="common-list app-list bg-layer">
+                        <div class="title">
+                            <div class="min-width-box">
+                                <h2>商区专区</h2>
+                            </div>
+                            <div class="move-news">
+                            	<div class="news-inner-box" id="news-move-box">
+                            		<ul>
+	                            		<li ng-repeat="item in moveList track by $index" ng-mouseover="stopMove()" ng-mouseout="runMove()"><a href="{{item.href}}" ng-bind="item.title"></a></li>
+	                            	</ul>
+                            	</div>
+                            	
+                            </div>
+                        </div>
+                        <div class="content-box">
+                            <div class="min-width-box clearfix">
+                                <div class="main">
+                                    <div class="top-bar" ng-hide="nowCate == -1 ? true : false">
+                                        <div class="category">
+                                            <ul>
+                                                <li><a href="javascript:;">游戏</a></li>
+                                                <li><a href="javascript:;">IP</a></li>
+                                                <li class="active"><a href="javascript:;">投资</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="sort-box">
+                                            <div class="search">
+                                                <input type="text" />
+                                                <div class="icon-search">
+                                                    <i class="iconfont icon-sousuo"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="news-list">
+                                        <div class="list-box">
+                                            <div class="list">
+                                                <ul>
+                                                    <li ng-repeat="news in newsList">
+														<div class="new-box">
+															<div class="cover"><img src="{{news.previewImage}}" /></div>
+															<div class="info">
+																<h3>{{news.title}}</h3>
+																<p ng-bind-html="news.previewContext | showAsHtml"></p>
+																<span>{{news.date | date:'yyyy-MM-dd'}}<a href="javascript:;">阅读全文</a></span>
+															</div>
+														</div>
+													</li>
+                                                </ul>
+                                                <div class="show-more">
+                                                    <a href="javascript:;" ng-click="loadMore()">点击加载更多</a>
+                                                </div>
+                                                <div class="no-more" ng-show="false">暂无更多</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="min-width-box">
+                        <div class="logo-box" id="logo">
+							<div class="logo-d2c"><a href="#" target="_blank">上海东方明珠迪尔希</a></div>
+							<div class="logo-silkroad"><a ui-sref="home">掌上丝绸之路</a></div>
+						</div>
+						<div class="right-box">
+							<div class="bottom-nav">
+								<ul>
+									<li><a href="http://www.opd2c.com/manage.php?GET_Table_Action=DEF_PATH_TABLE_ABOUT" target="_blank">关于我们</a></li>
+									<li><a href="http://www.opd2c.com/manage.php?GET_Table_Action=DEF_PATH_TABLE_PROJECT_ALL" target="_blank">项目介绍</a></li>
+									<li><a href="http://www.opd2c.com/manage.php?GET_Table_Action=DEF_PATH_TABLE_RECRUITMENT_RESEARCH" target="_blank">招贤纳才</a></li>
+									<li class="last"><a href="http://www.opd2c.com/manage.php?GET_Table_Action=DEF_PATH_TABLE_CONTACT" target="_blank">联系我们</a></li>
+								</ul>
+							</div>
+							<div class="copyright">
+								<p>Copyright © 2017 上海东方明珠迪尔希文化传媒有限公司<br />网络文化经营许可证：沪网文[2015]15015900号<br />工业和信息化部：沪ICP备15015900号</p>
+							</div>
+						</div>
+                    </div>
+                </div>
+                <div class="float-bar">
+                    <ul>
+                        <li ng-click="gotop()"><i class="iconfont icon-jiantou"></i></li>
+                        <li><i class="iconfont icon-weixin"></i></li>
+                        <li><i class="iconfont icon-tengxunweibo"></i></li>
+                        <li><i class="iconfont icon-erweimazhuanhuan"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/angular.min.js"></script>
+        <script src="../js/angular-ui-router.min.js"></script>
+        <script src="../controllers/app_c_index.js"></script>
+</body>
+</html>

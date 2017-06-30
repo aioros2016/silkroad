@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="silkroads" ng-controller="homeController" xmlns:ng="http://angularjs.org" id="ng-app">
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="robots" content="all">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="description" content="掌上丝绸之路, 世界了解中国原创手游的窗口。" />
+	    <meta name="keywords" content="东方明珠迪尔希,掌上丝绸之路,中国原创手游,手游发行,IP平台,手游投资,中小CP" />
+	    <meta name="renderer" content="webkit">
+	    <title>掌上丝绸之路</title>
+	    <link type="image/x-icon" href="images/sl.ico" rel="shortcut icon">
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+	    <!--build:css css/style.min.css -->
+	    <link href="css/iconfont.css" rel="stylesheet">
+	    <link href="css/style.css" rel="stylesheet">
+	    <!-- endbuild -->
+	    <link type="text/css" href="less/style.less" rel="stylesheet/less" />
+	    <script src="//cdn.bootcss.com/less.js/2.5.3/less.min.js"></script>
+	</head>
+	<body>
+		<div class="home" ui-view="home"></div>
+		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					</div>
+					<div class="modal-body">{{text}}</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/jquery.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/angular.min.js"></script>
+	    <script src="../js/angular-ui-router.min.js"></script>
+	    <!--build:js controllers/c-main.js -->
+	    <script src="routeConfig.js"></script>
+	    <script src="controllers/index.js"></script>
+	    <script src="controllers/entry.js"></script>
+	    <script src="controllers/header.js"></script>
+	    <script src="controllers/indexContent.js"></script>
+	    <script src="controllers/oursApp.js"></script>
+	    <script src="controllers/news.js"></script>
+	    <script src="controllers/detail.js"></script>
+	    <!-- endbuild -->
+	</body>
+</html>

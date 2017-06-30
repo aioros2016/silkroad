@@ -1,0 +1,36 @@
+<div class="common-list app-list bg-layer">
+	<div class="title">
+		<div class="min-width-box">
+			<h2>游戏推荐</h2>
+		</div>
+	</div>
+	<div class="content-box">
+		<div class="min-width-box clearfix">
+			<div class="main">
+				<div class="top-bar" ng-hide="nowCate == -1 ? true : false">
+					<div class="category">
+						<ul>
+							<li class="{{$index == nowCate ? 'active' : ''}}" ng-repeat="category in category"><a ui-sref="{{category.href}}">{{category.name}}</a></li>
+						</ul>
+					</div>
+					<div class="sort-box" ng-hide="true">
+						<div class="sort">
+							<span>排序</span>
+							<ul>
+								<li>最近更新</li>
+								<li>浏览历史</li>
+							</ul>
+						</div>
+						<div class="search">
+							<input type="text" />
+							<div class="icon-search">
+								<i class="iconfont icon-sousuo"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="view-list" ui-view="main"></div>
+			</div>
+		</div>
+	</div>
+</div>

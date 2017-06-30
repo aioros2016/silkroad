@@ -1,0 +1,22 @@
+<div class="list-box">
+	<div class="list">
+		<ul>
+			<li ng-repeat="app in appList">
+				<a class="item-box" ui-sref="appDetail({id: app.id})" ng-click="share()">
+					<div class="cover"><img ng-src="{{app.icon}}" /></div>
+					<div class="info">
+						<h3>{{app.name}}</h3>
+						<p>类型：<span ng-repeat="type in app.type">{{type}}</span></p>
+						<p>阶段：{{app.phase}}</p>
+						<p>平台：<span ng-repeat="platforms in app.platforms">{{platforms}}</span></p>
+						<p>需求：<span ng-repeat="need in app.need">{{need}}</span></p>
+					</div>
+				</a>
+			</li>
+		</ul>
+		<div class="show-more ng-cloak" ng-cloak>
+			<a href="javascript:;">点击加载更多</a>
+		</div>
+		<div class="no-more ng-cloak" ng-cloak>暂无更多</div>
+	</div>
+</div>

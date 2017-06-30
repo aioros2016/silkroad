@@ -1,0 +1,128 @@
+<div class="banner-slide">
+	<ul>
+		<li style="background-image: url({{banner.img}})" ng-repeat="banner in topBanner" on-finish-render="ngRepeatFinished"><a href="{{banner.href}}"></a></li>
+	</ul>
+	<div class="button-box">
+		<a class="prev" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+		<a class="next" href="javascript:;"><i class="iconfont icon-arrow-right"></i></a>
+	</div>
+</div>
+<div class="gameAndNews">
+	<div class="min-width-box">
+		<div class="app-slide">
+			<h2>推荐手游</h2>
+			<ol>
+				<li class="{{nowApp == $index ? 'active' : ''}}" ng-repeat="title in appSlide" ng-mouseover="tabApp($index)">
+					<div class="icon"><img ng-src="{{title.title.icon}}" /></div>
+					<div class="app-text">
+						<span class="app-title">{{title.title.game | limit:7}}</span>
+						<span class="app-info">{{title.title.infor | limit:14}}</span>
+					</div>
+				</li>
+			</ol>
+			<div class="cont-box">
+				<ul>
+					<li ng-repeat="item in appSlide" ng-show="nowApp == $index"><a href="{{item.app.href}}"><img ng-src="{{item.app.src}}" /></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="news-tab">
+			<ol ng-show="false" ng-show="false">
+				<li class="{{nowCategory == $index ? 'active' : ''}}" ng-repeat="title in newsCategory" ng-click="tabNews($index)">{{title.title}}</li>
+			</ol>
+			<div class="more" ng-show="false">
+				<a ui-sref="index2c.news">更多内容</a>
+			</div>
+			<div class="cont-box">
+				<ul>
+					<li ng-repeat="article in newsList">
+						<a ui-sref="index2c.newsDetail({id: article.id})">
+							<em>[新闻]</em>
+							{{article.name}}
+						</a>
+						<span>{{article.date | date:'yyyy-MM-dd'}}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="have-game">
+	<div class="min-width-box">
+		<div class="title">
+			<h2>最新游戏</h2>
+			<a class="more" ui-sref="index2c.app" ng-show="false">更多内容</a>
+		</div>
+		<div class="c-app-list">
+			<ul>
+				<li ng-repeat="app in appList">
+					<div class="item" ui-sref="index2c.appDetail({id: app.id})">
+						<div class="img"><img ng-src="{{app.listicon}}" /></div>
+						<div class="info">
+							<h3>{{app.name}}</h3>
+							<div class="txt">
+								<span>{{app.about}}</span>
+								<a ui-sref="index2c.appDetail({id: app.id})">[查看详细]</a>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="main-slogan">游戏众筹，敬请期待</div>
+<div class="banner-box" ng-style="columnImg">
+	<a href="{{columnImg.href}}" target="_blank"></a>
+</div>
+<div class="partner-link" ng-show="hide">
+	<div class="min-width-box">
+		<div class="title">
+			<h2>友情链接</h2>
+		</div>
+		<div class="logo-list">
+			<a class="baidu" href="#">百度游戏</a>
+			<a class="ali" href="#">阿里游戏</a>
+			<a class="l360" href="#">360手机助手</a>
+			<a class="anzhi" href="#">安智</a>
+			<a class="mumayi" href="#">木蚂蚁</a>
+			<a class="nowagame" href="#">美时游戏</a>
+		</div>
+		<div class="menu-list">
+			<a href="#">上方网</a>
+			<a href="#">小伙伴招聘</a>
+			<a href="#">科技快报</a>
+			<a href="#">搜狐手游  </a>
+			<a href="#">时空猎人</a>
+			<a href="#">19196手游</a>
+			<a href="#">最新手机</a>
+			<a href="#">游戏手游</a>
+			<a href="#">那点事</a>
+			<a href="#">搜我们</a>
+			<a href="#">掌上明珠</a>
+			<a href="#">手机游戏下载</a>
+			<a href="#">魔掌网</a>
+			<a href="#">游戏兵工厂</a>
+			<a href="#">赞吧游戏</a>
+			<a href="#">伊甸网 </a>
+			<a href="#">特牛手游网</a>
+			<a href="#">手游窝</a>
+			<a href="#">touch舞动全城</a>
+			<a href="#">安卓游戏下载</a>
+			<a href="#">美时游戏</a>
+			<a href="#">手游通</a>
+			<a href="#">66游</a>
+			<a href="#">UU898手机助手</a>
+			<a href="#">手游排行榜</a>
+			<a href="#">09093手游网</a>
+			<a href="#">手机单机游戏</a>
+			<a href="#">WP手游</a>
+			<a href="#">悦世界</a>
+			<a href="#">913VR游戏网</a>
+			<a href="#">七匣子</a>
+			<a href="#">游戏发号</a>
+			<a href="#">木蚂蚁</a>
+			<a href="#">白鲸社区</a>
+		</div>
+	</div>
+</div>

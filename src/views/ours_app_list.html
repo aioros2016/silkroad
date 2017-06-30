@@ -1,0 +1,22 @@
+<div class="list-box">
+	<div class="c-app-list">
+		<ul>
+			<li ng-repeat="app in appList" on-finish-render="ngRepeatFinished">
+				<div class="item">
+					<div class="img"><img ng-src="{{app.listicon}}" /></div>
+					<div class="info">
+						<h3>{{app.name}}</h3>
+						<div class="txt">
+							<span>{{app.about}}</span>
+							<a ui-sref="index2c.appDetail({id: app.id})">[查看详细]</a>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<div class="show-more">
+			<a class="ng-cloak" href="javascript:;" ng-click="loadMore(page)" ng-hide="page == totalPage" ng-cloak>点击加载更多</a>
+		</div>
+		<div class="no-more ng-cloak" ng-show="page == totalPage" ng-cloak>暂无更多</div>
+	</div>
+</div>

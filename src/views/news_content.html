@@ -1,0 +1,21 @@
+<div class="common-list news-list bg-layer">
+	<div class="title">
+		<div class="min-width-box">
+			<h2>游戏资讯</h2>
+		</div>
+	</div>
+	<div class="content-box">
+		<div class="min-width-box">
+			<div class="main">
+				<div class="top-bar" ng-show="false">
+					<div class="category">
+						<ul>
+							<li class="{{'020' + ($index+1) == nowCate ? 'active' : ''}}" ng-repeat="category in category" ng-click="getData(nowCate, 1)"><a ui-sref="{{category.href}}">{{category.name}}</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="view-list" ui-view="main"></div>
+			</div>
+		</div>
+	</div>
+</div>

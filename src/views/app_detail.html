@@ -1,0 +1,60 @@
+<div class="app-detail" ng-controller="detailController">
+	<div class="detail-nav">
+		<ol class="breadcrumb">
+			<li ng-repeat="breadCrumbs in breadCrumbs"><a ui-sref="{{breadCrumbs.href}}">{{breadCrumbs.title}}</a></li>
+		</ol>
+	</div>
+	<div class="detail-box">
+		<div class="detail-data app-data">
+			<div class="pull-left">
+				<div class="cover"><img ng-src="{{appDetail.icon}}" /></div>
+				<div class="bd-share" ng-show="false">
+					<span>分享到：</span>
+					<div class="bdsharebuttonbox" data-tag="share_1">
+						<a class="bds_more" data-cmd="more">
+						<a class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+						<a class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+						<a class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+						<a class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+						<a class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+					</div>
+				</div>
+				
+			</div>
+			<div class="pull-left">
+				<div class="info">{{appDetail.name}}<br />游戏种类：{{appDetail.type}}<br />平台：{{appDetail.platforms}}</div>
+				<div class="download-box">
+					<a class="download-ios" href="{{appDetail.downios}}" target="_blank">App Store下载</a>
+					<a class="download-android" href="{{appDetail.downandroid}}" target="_blank">安卓下载</a>
+				</div>
+			</div>
+			
+		</div>
+		<div class="detail-content">
+			<div class="summary" ng-bind-html="appDetail.infor | showAsHtml" on-finish-render="ngRepeatFinished"></div>
+			
+		</div>
+		<div class="app-picture ng-cloak" ng-hide="appDetail.images.length == 0 ? true : false" ng-cloak>
+			<h3>游戏图片</h3>
+			<div class="picture-box">
+				<div class="big-pic">
+					<div class="big-pic-mask">
+						<ul>
+							<li ng-repeat="photo in appDetail.images" ng-click="tab($index)" on-finish-render="ngRepeatFinished"><img ng-src="{{photo.url}}" /></li>
+						</ul>
+					</div>
+					<a class="prev" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+					<a class="next" href="javascript:;"><i class="iconfont icon-arrow-right"></i></a>
+				</div>
+				<div class="small-pic">
+					<div class="small-pic-mask">
+						<ol>
+							<li class="{{nowImg == $index ? 'active' : ''}}" ng-repeat="photo in appDetail.smImg"><img ng-src="{{photo.url}}" /></li>
+						</ol>
+					</div>
+				</div>
+				<!--<div swiper></div>-->
+			</div>
+		</div>
+	</div>
+</div>
